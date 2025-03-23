@@ -1,34 +1,52 @@
-import Link from 'next/link'
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { MobileMenu } from "@/components/mobile-menu"
+import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-primary">
-          SchoolDB
-        </Link>
-        <div className="hidden md:flex space-x-4 items-center">
-          <Link href="/" className="text-foreground hover:text-primary">
-            Home
-          </Link>
-          <Link href="/get-started" className="text-foreground hover:text-primary">
-            Get Started
-          </Link>
-          <Link href="#features" className="text-foreground hover:text-primary">
-            Features
-          </Link>
+    <div>
+      {/* Header */}
+      <header className="bg-white shadow fixed w-full z-10">
+        <div className="container mx-auto px-4 py-4">
+          <nav className="flex justify-between items-center">
+          <Link href="/get-started" className="logo text-2xl font-bold text-blue-700">
+  EduManager
+</Link>
+
+            <ul className="nav-links flex space-x-6">
+              <li>
+                <Link href="#" className="text-gray-800 font-medium hover:text-blue-700">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-800 font-medium hover:text-blue-700">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-gray-800 font-medium hover:text-blue-700">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/register"
+                  className="btn btn-outline px-4 py-2 border-2 border-blue-700 text-blue-700 rounded hover:bg-blue-700 hover:text-white"
+                >
+                  Sign Up
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/login"
+                  className="btn px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800"
+                >
+                  Login
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div className="flex items-center space-x-2">
-          <Link href="/login" className="text-foreground hover:text-primary">
-            <Button variant="outline" size="sm">Login</Button>
-          </Link>
-          <ThemeToggle />
-          <MobileMenu />
-        </div>
-      </nav>
-    </header>
-  )
+      </header>
+    </div>
+  );
 }
